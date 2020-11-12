@@ -18,6 +18,9 @@ exporters:
     endpoint: jaeger-all-in-one:14250
     insecure: true
 
+  azuremonitor:
+    instrumentation_key: <INSTRUMENTATION_KEY>
+
 # Alternatively, use jaeger_thrift_http with the settings below. In this case
 # update the list of exporters on the traces pipeline.
 #
@@ -41,7 +44,7 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch, queued_retry]
-      exporters: [zipkin, jaeger]
+      exporters: [zipkin, jaeger, azuremonitor]
     metrics:
       receivers: [otlp]
       processors: [batch]
