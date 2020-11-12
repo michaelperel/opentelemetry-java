@@ -10,6 +10,10 @@ libraries for individual backends are not necessary, so no code changes are requ
 Zipkin, Azure Monitor etc. Instead, they can be specified as exporters in a YAML file that
 configures the Collector.
 
+# What is missing?
+This demo app shows manual instrumentation. It does not use a separate java agent for automatic
+instrumentation.
+
 # Instructions
 1. Create an instance of App Insights with a Log Analytics Workspace
 2. Place the App Insights Instrumentation key in `otel-collector-config-demo.yaml`
