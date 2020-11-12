@@ -34,13 +34,13 @@ public class OtlpExporterExample {
     System.setProperty("otel.resource.attributes", "service.name=OtlpExporterExample");
 
     // set up the span exporter and wire it into the SDK
-    OtlpGrpcSpanExporter spanExporter = OtlpGrpcSpanExporter.getDefault();
+    OtlpGrpcSpanExporter spanExporter = OtlpGrpcSpanExporter.builder().setDeadlineMs(10000).build();
     BatchSpanProcessor spanProcessor =
         BatchSpanProcessor.builder(spanExporter).setScheduleDelayMillis(100).build();
     OpenTelemetrySdk.getGlobalTracerManagement().addSpanProcessor(spanProcessor);
 
     // set up the metric exporter and wire it into the SDK and a timed reader.
-    OtlpGrpcMetricExporter metricExporter = OtlpGrpcMetricExporter.getDefault();
+    OtlpGrpcMetricExporter metricExporter = OtlpGrpcMetricExporter.builder().setDeadlineMs(10000).build();
     IntervalMetricReader intervalMetricReader =
         IntervalMetricReader.builder()
             .setMetricExporter(metricExporter)
