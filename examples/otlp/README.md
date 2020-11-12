@@ -1,13 +1,11 @@
 # What is this?
-A demo application that sends metrics and logs to an Open Telemetry Collector, using the
-[OTLP gRPC exporter](https://github.com/open-telemetry/opentelemetry-collector/tree/master/exporter/otlpexporter).
+A demo application that sends metrics and logs to an [Open Telemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib).
 
-Messages in the [Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib) are
-then exported to Jaeger, Zipkin, Prometheus, and Azure Monitor.
+Messages in the Collector are forwarded to Jaeger, Zipkin, Prometheus, and Azure Monitor.
 
 This is significant because the demo application is independent of the logging backend. Client
 libraries for individual backends are not necessary, so no code changes are required to support
-Zipkin, Azure Monitor etc. Instead, they can be specified as exporters in a YAML file that
+Zipkin, Azure Monitor etc. Instead, they can be specified as Exporters in a YAML file that
 configures the Collector.
 
 # What is missing?
